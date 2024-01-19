@@ -48,3 +48,20 @@ for (let i = 0; i < sorted.length - 1; i++) {
 }
 
 console.log(ob[Object.keys(ob).sort((a, b) => a - b)[0]].join("\n"));
+
+
+// check if the string is palindrome
+const isPalindrome = (st) => {
+  if (st.length === 1) return true;
+  const ob = {};
+  for (let i = 0; i < st.length; i++) {
+    ob[st[i]] = (ob[st[i]] || 0) + 1;
+  }
+  if (st.length % 2 === 0) {
+    return Object.values(ob).reduce((acc, cur) => cur % 2 === 0 && acc, true);
+  } else {
+    return Object.values(ob).filter((el) => el % 2 !== 0).length === 1;
+  }
+};
+console.log(isPalindrome("alammyal"));
+
